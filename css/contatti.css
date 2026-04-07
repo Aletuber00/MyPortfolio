@@ -197,67 +197,57 @@ form textarea:focus {
 
 /* --- INTEGRAZIONE RESPONSIVE CONTATTI --- */
 
-@media (max-width: 900px) {
-    .contact {
-        padding: 100px 5% 40px; /* Ridotto il padding laterale */
+@media (max-width: 991px) {
+    .services {
+        padding: 100px 5% 40px; /* Più spazio ai lati sui tablet */
     }
-
-    .heading {
-        font-size: 40px; /* Titolo leggermente più piccolo */
-        margin-bottom: 2rem;
-    }
-
-    .contact-container {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .contact-info {
-        text-align: center; /* Centra il testo per un look mobile più pulito */
-        order: 2; /* Sposta le info sotto il form (opzionale) */
-    }
-
-    .info-list .info-item {
-        justify-content: center; /* Centra le icone e il testo */
-    }
-
-    .contact-info .home-sci {
-        justify-content: center; /* Centra i social */
-    }
-
-    form {
-        order: 1; /* Il form appare per primo su mobile */
-    }
-
-    form .input-box input {
-        width: 100%; /* Gli input occupano tutta la riga */
+    
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
 }
 
-/* Smartphone molto piccoli (max 480px) */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .header {
         padding: 20px 5%;
     }
 
     .navbar a {
-        font-size: 14px;
-        margin-left: 10px;
+        font-size: 16px;
+        margin-left: 15px;
     }
 
     .heading {
-        font-size: 32px;
+        font-size: 35px;
+        margin-bottom: 2rem;
     }
 
-    .contact-info h3 {
-        font-size: 24px;
+    .services-container {
+        grid-template-columns: 1fr; /* Una sola colonna per smartphone */
     }
 
-    .info-item span {
-        font-size: 16px;
+    .services-box {
+        padding: 30px 20px; /* Ridotto il padding interno alle card */
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column; /* Evita che logo e menu si scontrino */
+        gap: 10px;
     }
 
-    .btn {
-        width: 100%; /* Il bottone "Invia" a tutta larghezza è più facile da cliccare */
+    .navbar a {
+        margin: 0 8px;
+        font-size: 14px;
+    }
+
+    .services-box i {
+        font-size: 50px; /* Icone leggermente più piccole */
+    }
+
+    .services-box h3 {
+        font-size: 22px;
     }
 }
