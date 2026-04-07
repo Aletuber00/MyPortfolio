@@ -199,20 +199,25 @@ body {
 /* --- MEDIA QUERY MOBILE (FIX NAVBAR & PULSANTI) --- */
 @media (max-width: 768px) {
     .header {
-        background: #081b29;
-        padding: 15px 5%;
-        flex-direction: row; /* RIMANE ORIZZONTALE */
-        justify-content: space-between;
+        display: flex;
+        flex-direction: row !important; /* Forza l'allineamento orizzontale */
+        justify-content: space-between; /* Spinge logo a sx e menu a dx */
+        align-items: center;
+        padding: 20px 5%;
     }
 
-    .logo {
-        font-size: 18px; /* Ridotto per far spazio ai link */
+    .navbar {
+        display: flex !important;
+        flex-direction: row !important; /* Mette i link uno di fianco all'altro */
+        gap: 8px; /* Spazio tra i tasti */
+        margin-left: 0;
     }
 
     .navbar a {
-        font-size: 16px;
-        margin-left: 15px;
+        font-size: 13px; /* Riduci per far stare tutto su una riga */
+        margin-left: 5px; /* Spazio minimo tra i link */
     }
+}
 
         .about-text-side h3 {
         font-size: 24px;
