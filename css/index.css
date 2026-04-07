@@ -198,35 +198,32 @@ body {
 
 /* --- MEDIA QUERY MOBILE (FIX NAVBAR & PULSANTI) --- */
 @media (max-width: 768px) {
+    /* HEADER ORIZZONTALE COME "CHI SIAMO" */
     .header {
-        display: flex;
-        flex-direction: row !important; /* Forza l'allineamento orizzontale */
-        justify-content: space-between; /* Spinge logo a sx e menu a dx */
+        display: flex !important;
+        flex-direction: row !important; 
+        justify-content: space-between !important;
         align-items: center;
-        padding: 20px 5%;
+        padding: 15px 5%;
+        background: #081b29; /* Sfondo solido per leggibilità */
+    }
+
+    .logo {
+        font-size: 18px; /* Leggermente più piccolo per far spazio */
     }
 
     .navbar {
         display: flex !important;
-        flex-direction: row !important; /* Mette i link uno di fianco all'altro */
-        gap: 8px; /* Spazio tra i tasti */
-        margin-left: 0;
+        flex-direction: row !important; 
+        gap: 5px; 
     }
 
     .navbar a {
-        font-size: 13px; /* Riduci per far stare tutto su una riga */
-        margin-left: 5px; /* Spazio minimo tra i link */
-    }
-}
-
-        .about-text-side h3 {
-        font-size: 24px;
+        font-size: 12px; 
+        margin-left: 8px; /* Spazio tra i link */
     }
 
-    .about-text-side p {
-        font-size: 15px;
-    }
-
+    /* HOME SECTION MOBILE */
     .home {
         flex-direction: column-reverse;
         justify-content: center;
@@ -237,53 +234,61 @@ body {
     }
 
     .home-img {
-        width: 200px;
-        height: 200px;
-        margin-bottom: 20px;
+        width: 180px;
+        height: 180px;
+        margin: 0 auto 20px;
     }
 
-    .home-content h1 { font-size: 26px; }
-    .home-content h3 { font-size: 18px; }
+    .home-content h1 { font-size: 28px; }
+    .home-content h3 { font-size: 20px; }
     .home-content p { font-size: 14px; padding: 0 5%; margin: 15px 0; }
 
-    /* FIX PULSANTI MOBILE */
+    /* FIX PULSANTI (Grandi e cliccabili) */
     .btn-box {
-        flex-direction: column;
-        width: 100%;
-        height: auto;
-        gap: 12px;
+        flex-direction: column !important;
+        width: 100% !important;
+        height: auto !important;
+        gap: 15px;
         padding: 0 20px;
+        margin-top: 20px;
     }
 
     .btn-box a {
-        width: 100%;
-        height: 50px;
+        width: 100% !important;
+        height: 55px !important; /* Altezza generosa per iPhone */
         font-size: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    .btn-box a::before { display: none; }
+    /* Rimuoviamo l'animazione ::before su mobile per evitare bug visivi sui tasti */
+    .btn-box a::before { display: none !important; }
 
     .btn-box a:nth-child(1) {
-        background: #00abf0;
-        color: #081b29;
+        background: #00abf0 !important;
+        color: #081b29 !important;
     }
 
     .btn-box a:nth-child(2) {
-        background: transparent;
-        color: #00abf0;
-        border: 2px solid #00abf0;
+        background: transparent !important;
+        color: #00abf0 !important;
+        border: 2px solid #00abf0 !important;
     }
 
+    /* SOCIAL */
     .home-sci {
         position: relative;
         bottom: 0;
         margin: 30px auto;
+        justify-content: center;
+        gap: 20px;
     }
 }
 
-/* Per schermi strettissimi (es. iPhone SE / Mini) */
-@media (max-width: 380px) {
-    .logo { font-size: 15px; }
-    .navbar a { margin-left: 7px; font-size: 11px; }
-    .home-img { width: 160px; height: 160px; }
+/* Per schermi molto stretti (iPhone SE / Mini) */
+@media (max-width: 360px) {
+    .logo { font-size: 16px; }
+    .navbar a { font-size: 11px; margin-left: 5px; }
+    .home-content h1 { font-size: 24px; }
 }
