@@ -1,3 +1,4 @@
+/* --- IMPORTAZIONE FONT --- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 * {
@@ -10,20 +11,22 @@
 body {
     background: #081b29;
     color: #ededed;
+    overflow-x: hidden; /* Impedisce lo scroll orizzontale */
 }
 
+/* --- HEADER & NAVBAR --- */
 .header {
-    position: fixed; /* Fondamentale: la ancora allo schermo */
-    top: 0;          /* La blocca in cima */
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
     padding: 20px 10%;
-    background: #081b29; /* Aggiungi un colore di sfondo se vuoi che copra il testo che scorre sotto */
+    background: #081b29;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;   /* Numero alto per stare sopra a tutto il resto del contenuto */
-    transition: .3s; /* Per rendere eventuali cambi di colore fluidi */
+    z-index: 1000;
+    transition: .3s;
 }
 
 .logo {
@@ -47,7 +50,7 @@ body {
     color: #00abf0;
 }
 
-/* SECTION CONTACT */
+/* --- SECTION CONTACT --- */
 .contact {
     min-height: 100vh;
     display: flex;
@@ -137,14 +140,12 @@ body {
 form {
     flex: 1.5;
     width: 100%;
-    text-align: center;
 }
 
 form .input-box {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 15px;
 }
 
 form .input-box input,
@@ -161,11 +162,12 @@ form textarea {
 }
 
 form .input-box input {
-    width: 48%; /* Due input per riga */
+    width: 49%; /* Leggermente ridotto per gestire meglio il wrap */
 }
 
 form textarea {
     resize: none;
+    height: 200px;
 }
 
 form .input-box input:focus,
@@ -195,46 +197,62 @@ form textarea:focus {
     box-shadow: 0 0 20px #00abf0;
 }
 
-/* --- INTEGRAZIONE RESPONSIVE CONTATTI --- */
+/* --- RESPONSIVE MODIFICATIONS --- */
 
 @media (max-width: 991px) {
-    .services {
-        padding: 100px 5% 40px; /* Più spazio ai lati sui tablet */
-    }
-    
-    .services-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
     .header {
         padding: 20px 5%;
     }
 
-    .navbar a {
-        font-size: 16px;
-        margin-left: 15px;
+    .contact {
+        padding: 100px 5% 40px;
     }
 
+    .contact-container {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
     .heading {
-        font-size: 35px;
-        margin-bottom: 2rem;
+        font-size: 40px;
     }
 
-    .services-container {
-        grid-template-columns: 1fr; /* Una sola colonna per smartphone */
+    .contact-container {
+        flex-direction: column; /* Impila Info e Form verticalmente */
+        align-items: center;
     }
 
-    .services-box {
-        padding: 30px 20px; /* Ridotto il padding interno alle card */
+    .contact-info {
+        text-align: center;
+        width: 100%;
+    }
+
+    .info-list .info-item {
+        justify-content: center; /* Centra icone e testo */
+    }
+
+    .info-item span {
+        font-size: 16px;
+        word-break: break-all; /* Impedisce all'email di rompere il layout */
+    }
+
+    .contact-info .home-sci {
+        justify-content: center;
+    }
+
+    form .input-box input {
+        width: 100%; /* Input a larghezza piena su mobile */
+    }
+
+    .btn {
+        width: 100%; /* Bottone invia a larghezza piena */
     }
 }
 
 @media (max-width: 480px) {
     .header {
-        flex-direction: column; /* Evita che logo e menu si scontrino */
+        flex-direction: column;
         gap: 10px;
     }
 
@@ -243,11 +261,11 @@ form textarea:focus {
         font-size: 14px;
     }
 
-    .services-box i {
-        font-size: 50px; /* Icone leggermente più piccole */
+    .heading {
+        font-size: 32px;
     }
 
-    .services-box h3 {
-        font-size: 22px;
+    .contact-info h3 {
+        font-size: 24px;
     }
 }
