@@ -428,3 +428,94 @@ body {
         height: 45px;
     }
 }
+
+/* --- RESPONSIVE OPTIMIZED FOR MOBILE (max 480px, es. iPhone 13) --- */
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        gap: 15px; /* Aumentato lo spazio tra logo e menu */
+        padding: 20px 5%;
+    }
+
+    .logo {
+        font-size: 22px; /* Logo leggermente più piccolo */
+    }
+
+    .navbar a {
+        margin: 0 5px;
+        font-size: 13px; /* Testo menu più piccolo */
+    }
+
+    .home {
+        flex-direction: column-reverse;
+        justify-content: flex-start; /* Spinge tutto verso l'alto */
+        padding-top: 130px; /* Lascia spazio alla navbar impilata */
+        text-align: center;
+        height: auto;
+    }
+
+    .home-img {
+        width: 160px; /* Immagine più piccola per lasciare spazio */
+        height: 160px;
+        margin-bottom: 1rem;
+    }
+
+    .home-img img {
+        border-width: 3px;
+    }
+
+    .home-content {
+        padding: 0 10px;
+    }
+
+    .home-content h1 {
+        font-size: 24px;
+        margin-bottom: 0.5rem;
+    }
+
+    .home-content h3 {
+        font-size: 18px;
+    }
+
+    .home-content p {
+        font-size: 14px;
+        margin: 15px 0;
+        line-height: 1.5;
+    }
+
+    /* --- CORREZIONE PULSANTI --- */
+    .btn-box {
+        flex-direction: column;
+        width: 100%;
+        height: auto; /* IMPORTANTE: Rimuove l'altezza fissa */
+        gap: 15px;
+        padding: 0 15px; /* Margine interno per non toccare i bordi */
+    }
+
+    .btn-box a {
+        width: 100%; /* Occupa tutta la larghezza disponibile */
+        height: auto; /* IMPORTANTE: Rimuove l'altezza fissa */
+        display: block; /* O inline-block, ma block è più sicuro per larghezza 100% */
+        padding: 18px 0; /* Aumenta il padding verticale per "ingrandire" il tasto */
+        font-size: 16px;
+        border-radius: 10px;
+        background: #00abf0; /* Sfondo solido e visibile */
+        color: #081b29; /* Testo scuro per contrasto */
+        border: 2px solid #00abf0;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    /* Stile specifico per il secondo pulsante 'Parliamo' (trasparente con bordo) */
+    .btn-box a:nth-child(2) {
+        background: transparent;
+        color: #00abf0;
+        border: 2px solid #00abf0;
+    }
+
+    /* Rimuove effetti hover complessi su mobile che possono causare sfarfallii */
+    .btn-box a:hover {
+        background: #0084ba;
+        box-shadow: none;
+    }
+}
