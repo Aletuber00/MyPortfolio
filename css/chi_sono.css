@@ -1,0 +1,251 @@
+/* --- IMPORTAZIONE FONT --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #081b29;
+    color: #ededed;
+    overflow-x: hidden;
+}
+
+/* --- HEADER & NAVBAR (IDENTICA ALLA HOME) --- */
+.header {
+    position: fixed; /* Fondamentale: la ancora allo schermo */
+    top: 0;          /* La blocca in cima */
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: #081b29; /* Aggiungi un colore di sfondo se vuoi che copra il testo che scorre sotto */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;   /* Numero alto per stare sopra a tutto il resto del contenuto */
+    transition: .3s; /* Per rendere eventuali cambi di colore fluidi */
+}
+.logo {
+    position: relative;
+    font-size: 25px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    transition: .3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #00abf0;
+}
+
+/* --- LAYOUT PAGINA CHI SONO --- */
+.about-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 10% 40px; /* Padding top aumentato per non finire sotto la navbar */
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- IMMAGINE --- */
+.about-img-side {
+    position: relative;
+    width: 450px; /* Grandezza simile alla home */
+    height: 450px;
+    flex-shrink: 0;
+}
+
+.about-img-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%; /* Se la vuoi tonda come la home */
+    border: 5px solid #00abf0;
+    box-shadow: 0 0 20px rgba(0, 171, 240, 0.2);
+}
+
+/* --- TESTO --- */
+.about-text-side {
+    max-width: 600px;
+}
+
+.about-text-side h1 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.about-text-side h1 span {
+    color: #00abf0;
+}
+
+.about-text-side h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #00abf0;
+    margin: 10px 0 20px;
+}
+
+.about-text-side p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* --- TECH STACK --- */
+.tech-stack {
+    margin: 30px 0;
+}
+
+.tech-stack h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.icons {
+    display: flex;
+    gap: 25px;
+}
+
+.icons i {
+    font-size: 45px;
+    color: #00abf0;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.icons i:hover {
+    transform: translateY(-8px);
+    text-shadow: 0 0 15px #00abf0;
+}
+
+/* --- BOTTONE TORNA HOME --- */
+.btn-box {
+    margin-top: 30px;
+}
+
+.btn-box a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #00abf0;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #00abf0;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: .5s;
+}
+
+.btn-box a:hover {
+    background: #00abf0;
+    color: #081b29;
+    box-shadow: 0 0 20px #00abf0;
+}
+
+/* --- AGGIORNAMENTO RESPONSIVE CHI SONO --- */
+
+/* Tablet e schermi medi */
+@media (max-width: 991px) {
+    .header {
+        padding: 20px 5%;
+    }
+
+    .about-page {
+        padding: 120px 5% 60px;
+    }
+
+    .about-container {
+        flex-direction: column; /* Immagine sopra il testo */
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .about-img-side {
+        width: 300px;
+        height: 300px;
+    }
+
+    .about-text-side h1 {
+        font-size: 40px;
+    }
+    
+    .icons {
+        justify-content: center;
+        flex-wrap: wrap; /* Permette alle icone di andare a capo se troppe */
+    }
+}
+
+/* Smartphone (max 768px) */
+@media (max-width: 768px) {
+    .navbar a {
+        font-size: 16px;
+        margin-left: 15px;
+    }
+
+    .about-text-side h3 {
+        font-size: 24px;
+    }
+
+    .about-text-side p {
+        font-size: 15px;
+    }
+}
+
+/* Smartphone piccoli (max 480px) */
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column; /* Logo sopra e menu sotto se lo spazio finisce */
+        gap: 10px;
+    }
+
+    .navbar a {
+        margin: 0 8px;
+        font-size: 14px;
+    }
+
+    .about-img-side {
+        width: 200px; /* Ridimensiona ulteriormente l'immagine */
+        height: 200px;
+    }
+
+    .about-text-side h1 {
+        font-size: 32px;
+    }
+
+    .icons i {
+        font-size: 35px; /* Icone tech stack leggermente più piccole */
+    }
+
+    .btn-box a {
+        width: 100%; /* Il bottone occupa tutta la larghezza per facilitare il click */
+    }
+}

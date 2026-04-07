@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #081b29;
+    color: #ededed;
+    overflow-x: hidden;
+}
+
+.header {
+    position: fixed; /* Fondamentale: la ancora allo schermo */
+    top: 0;          /* La blocca in cima */
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: #081b29; /* Aggiungi un colore di sfondo se vuoi che copra il testo che scorre sotto */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;   /* Numero alto per stare sopra a tutto il resto del contenuto */
+    transition: .3s; /* Per rendere eventuali cambi di colore fluidi */
+}
+
+.logo {
+    font-size: 25px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    transition: .3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #00abf0;
+}
+
+/* SECTION SERVICES */
+.services {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 10% 40px;
+}
+
+.heading {
+    font-size: 50px;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.heading span {
+    color: #00abf0;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+}
+
+.services-box {
+    background: #112e42;
+    padding: 40px 30px;
+    border-radius: 2rem;
+    border: .2rem solid #081b29;
+    text-align: center;
+    transition: .5s ease;
+}
+
+.services-box:hover {
+    border-color: #00abf0;
+    transform: scale(1.03);
+    box-shadow: 0 0 20px #00abf0;
+}
+
+.services-box i {
+    font-size: 70px;
+    color: #00abf0;
+    margin-bottom: 1rem;
+}
+
+.services-box h3 {
+    font-size: 26px;
+    margin-bottom: 1rem;
+}
+
+.services-box p {
+    font-size: 15px;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* BOTTONE NELLE CARD 
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 40px;
+    background: #00abf0;
+    border: 2px solid #00abf0;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #081b29;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .5s;
+}
+
+.btn:hover {
+    background: transparent;
+    color: #00abf0;
+    box-shadow: none;
+}  */
+
+/* --- AGGIORNAMENTO RESPONSIVE SERVIZI --- */
+
+@media (max-width: 991px) {
+    .services {
+        padding: 100px 5% 40px; /* Più spazio ai lati sui tablet */
+    }
+    
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 5%;
+    }
+
+    .navbar a {
+        font-size: 16px;
+        margin-left: 15px;
+    }
+
+    .heading {
+        font-size: 35px;
+        margin-bottom: 2rem;
+    }
+
+    .services-container {
+        grid-template-columns: 1fr; /* Una sola colonna per smartphone */
+    }
+
+    .services-box {
+        padding: 30px 20px; /* Ridotto il padding interno alle card */
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column; /* Evita che logo e menu si scontrino */
+        gap: 10px;
+    }
+
+    .navbar a {
+        margin: 0 8px;
+        font-size: 14px;
+    }
+
+    .services-box i {
+        font-size: 50px; /* Icone leggermente più piccole */
+    }
+
+    .services-box h3 {
+        font-size: 22px;
+    }
+}
