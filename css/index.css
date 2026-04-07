@@ -41,6 +41,11 @@ body {
     font-weight: 600;
 }
 
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
 .navbar a {
     font-size: 18px;
     color: #ededed;
@@ -134,7 +139,7 @@ body {
 .btn-box a:nth-child(2):hover { color: #081b29; }
 .btn-box a:nth-child(2)::before { background: #00abf0; }
 
-/* --- IMMAGINE (DESKTOP - RIPRISTINATA) --- */
+/* --- IMMAGINE (DESKTOP) --- */
 .home-img {
     width: 410px;
     height: 410px;
@@ -191,54 +196,64 @@ body {
     .home-img { width: 300px; height: 300px; }
 }
 
-/* --- MEDIA QUERY MOBILE (Ottimizzata iPhone 13 & Simili) --- */
+/* --- MEDIA QUERY MOBILE (FIX NAVBAR & PULSANTI) --- */
 @media (max-width: 768px) {
     .header {
         background: #081b29;
         padding: 15px 5%;
+        flex-direction: row; /* RIMANE ORIZZONTALE */
+        justify-content: space-between;
+    }
+
+    .logo {
+        font-size: 18px; /* Ridotto per far spazio ai link */
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: row; /* LINK AFFIANCATI */
     }
 
     .navbar a {
-        font-size: 15px;
-        margin-left: 15px;
+        font-size: 12px; /* Testo più piccolo per stare sulla stessa riga */
+        margin-left: 10px;
     }
 
     .home {
         flex-direction: column-reverse;
         justify-content: center;
         text-align: center;
-        padding-top: 120px;
+        padding-top: 100px;
         height: auto;
         min-height: 100vh;
     }
 
     .home-img {
-        width: 220px;
-        height: 220px;
-        margin-bottom: 30px;
+        width: 200px;
+        height: 200px;
+        margin-bottom: 20px;
     }
 
-    .home-content h1 { font-size: 28px; }
-    .home-content h3 { font-size: 20px; }
-    .home-content p { font-size: 14px; padding: 0 5%; margin: 20px 0; }
+    .home-content h1 { font-size: 26px; }
+    .home-content h3 { font-size: 18px; }
+    .home-content p { font-size: 14px; padding: 0 5%; margin: 15px 0; }
 
-    /* --- FIX PULSANTI MOBILE --- */
+    /* FIX PULSANTI MOBILE */
     .btn-box {
         flex-direction: column;
         width: 100%;
         height: auto;
-        gap: 15px;
+        gap: 12px;
         padding: 0 20px;
     }
 
     .btn-box a {
         width: 100%;
-        height: 55px; /* Tasto bello alto per iPhone */
-        font-size: 17px;
-        display: flex;
+        height: 50px;
+        font-size: 16px;
     }
 
-    .btn-box a::before { display: none; } /* Rimuove l'effetto hover che glitcha su mobile */
+    .btn-box a::before { display: none; }
 
     .btn-box a:nth-child(1) {
         background: #00abf0;
@@ -254,12 +269,13 @@ body {
     .home-sci {
         position: relative;
         bottom: 0;
-        margin: 40px auto;
+        margin: 30px auto;
     }
 }
 
-/* Per schermi strettissimi (es. iPhone SE) */
-@media (max-width: 400px) {
-    .navbar a { margin-left: 10px; font-size: 13px; }
-    .home-img { width: 180px; height: 180px; }
+/* Per schermi strettissimi (es. iPhone SE / Mini) */
+@media (max-width: 380px) {
+    .logo { font-size: 15px; }
+    .navbar a { margin-left: 7px; font-size: 11px; }
+    .home-img { width: 160px; height: 160px; }
 }
