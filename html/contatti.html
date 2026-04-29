@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti - Alessandro Foggetti</title>
+    <link rel="stylesheet" href="../css/contatti.css"> 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+<header class="header">
+    <a href="../index.html" class="logo">Alessandro Foggetti</a>
+
+    <nav class="navbar">
+        <a href="../index.html">Home</a>
+        <a href="chi_sono.html">Chi sono</a>
+        <a href="servizi.html">Servizi</a>
+        <a href="contatti.html" class="active">Contatti</a>
+    </nav>
+</header> 
+
+<section class="contact">
+    <h2 class="heading">Contattami</h2>
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3>Lavoriamo insieme!</h3>
+            <p>Hai un progetto in mente? Scrivimi pure!</p>
+            
+            <div class="info-list">
+                <div class="info-item">
+                    <i class='bx bxs-envelope'></i>
+                    <span>icloudale00@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <i class='bx bxs-phone'></i>
+                    <span>+39 329 956 5019</span>
+                </div>
+                <div class="info-item">
+                    <i class='bx bxs-map'></i>
+                    <span>Italia, Capurso (BA)</span>
+                </div>
+            </div>
+
+            <div class="home-sci">
+                <a href="https://www.facebook.com/alessandro.foggetti0000"><i class="bx bxl-facebook"></i></a>
+                <a href="https://www.instagram.com/alessandrofoggetti_"><i class="bx bxl-instagram"></i></a>
+                <a href="https://github.com/Aletuber00"><i class="bx bxl-github"></i></a>
+            </div>
+        </div>
+
+        <form action="https://formspree.io/f/mlgoprvl" method="POST">
+            <div class="input-box">
+                <input type="text" name="Nome" placeholder="Nome Completo" required>
+                <input type="email" name="Email" placeholder="Indirizzo Email" required>
+            </div>
+            <div class="input-box">
+                <input type="number" name="Telefono" placeholder="Numero di Telefono">
+                <input type="text" name="Oggetto" placeholder="Oggetto della mail">
+            </div>
+            <textarea name="Messaggio" cols="30" rows="10" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
+            
+            <button type="submit" class="btn">Invia Messaggio</button>
+        </form>
+    </div>
+</section>
+
+</body>
+</html>

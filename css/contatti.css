@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #081b29;
+    color: #ededed;
+}
+
+.header {
+    position: fixed; /* Fondamentale: la ancora allo schermo */
+    top: 0;          /* La blocca in cima */
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: #081b29; /* Aggiungi un colore di sfondo se vuoi che copra il testo che scorre sotto */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;   /* Numero alto per stare sopra a tutto il resto del contenuto */
+    transition: .3s; /* Per rendere eventuali cambi di colore fluidi */
+}
+
+.logo {
+    font-size: 25px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    transition: .3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #00abf0;
+}
+
+/* SECTION CONTACT */
+.contact {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 10% 40px;
+}
+
+.heading {
+    font-size: 50px;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.heading span {
+    color: #00abf0;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    width: 100%;
+}
+
+/* INFO LATERALE */
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h3 {
+    font-size: 30px;
+    color: #00abf0;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.info-list .info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-item i {
+    font-size: 25px;
+    color: #00abf0;
+}
+
+.info-item span {
+    font-size: 18px;
+}
+
+.contact-info .home-sci {
+    margin-top: 40px;
+    display: flex;
+    gap: 15px;
+}
+
+.home-sci a {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #00abf0;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: #00abf0;
+    font-size: 20px;
+    transition: .5s;
+    text-decoration: none;
+}
+
+.home-sci a:hover {
+    background: #00abf0;
+    color: #081b29;
+    box-shadow: 0 0 15px #00abf0;
+}
+
+/* FORM STYLING */
+form {
+    flex: 1.5;
+    width: 100%;
+    text-align: center;
+}
+
+form .input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+form .input-box input,
+form textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    color: #ededed;
+    background: #112e42;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    margin: 10px 0;
+    transition: .3s;
+}
+
+form .input-box input {
+    width: 48%; /* Due input per riga */
+}
+
+form textarea {
+    resize: none;
+}
+
+form .input-box input:focus,
+form textarea:focus {
+    border-color: #00abf0;
+    box-shadow: 0 0 10px #00abf0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #00abf0;
+    border-radius: 8px;
+    border: 2px solid #00abf0;
+    color: #081b29;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: .5s;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background: transparent;
+    color: #00abf0;
+    box-shadow: 0 0 20px #00abf0;
+}
+
+/* --- INTEGRAZIONE RESPONSIVE CONTATTI --- */
+
+@media (max-width: 900px) {
+    .contact {
+        padding: 100px 5% 40px; /* Ridotto il padding laterale */
+    }
+
+    .heading {
+        font-size: 40px; /* Titolo leggermente più piccolo */
+        margin-bottom: 2rem;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .contact-info {
+        text-align: center; /* Centra il testo per un look mobile più pulito */
+        order: 2; /* Sposta le info sotto il form (opzionale) */
+    }
+
+    .info-list .info-item {
+        justify-content: center; /* Centra le icone e il testo */
+    }
+
+    .contact-info .home-sci {
+        justify-content: center; /* Centra i social */
+    }
+
+    form {
+        order: 1; /* Il form appare per primo su mobile */
+    }
+
+    form .input-box input {
+        width: 100%; /* Gli input occupano tutta la riga */
+    }
+}
+
+/* Smartphone molto piccoli (max 480px) */
+@media (max-width: 480px) {
+    .header {
+        padding: 20px 5%;
+    }
+
+    .navbar a {
+        font-size: 14px;
+        margin-left: 10px;
+    }
+
+    .heading {
+        font-size: 32px;
+    }
+
+    .contact-info h3 {
+        font-size: 24px;
+    }
+
+    .info-item span {
+        font-size: 16px;
+    }
+
+    .btn {
+        width: 100%; /* Il bottone "Invia" a tutta larghezza è più facile da cliccare */
+    }
+}
