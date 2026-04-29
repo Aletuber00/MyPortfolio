@@ -396,6 +396,10 @@ body {
 
 /* Smartphone (Breakpoint principale) */
 @media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+    }
+
     /* Mostra il pulsante hamburger */
     .menu-toggle {
         display: block;
@@ -434,9 +438,10 @@ body {
         justify-content: center;
         text-align: center;
         padding-top: 80px;
-        height: 100vh;
+        padding-bottom: 30px;
+        height: auto;
+        min-height: 100vh;
         gap: 15px;
-        overflow-y: auto;
     }
 
     .home-img {

@@ -291,6 +291,16 @@ form textarea:focus {
 
 @media (max-width: 768px) {
 
+    body {
+        overflow-y: auto;
+    }
+
+    .contact {
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 40px;
+    }
+
     /* Mostra hamburger */
     .menu-toggle {
         display: block;

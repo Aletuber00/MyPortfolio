@@ -238,6 +238,16 @@ body {
 
 /* Smartphone (max 768px) */
 @media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .about-page {
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 40px;
+    }
+
     /* Mostra hamburger */
     .menu-toggle {
         display: block;

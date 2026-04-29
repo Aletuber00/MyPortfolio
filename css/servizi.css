@@ -153,6 +153,16 @@ body {
 }
 
 @media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .services {
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 40px;
+    }
+
     /* Mostra hamburger */
     .menu-toggle {
         display: block;
