@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <meta name="description" content="Portfolio di Alessandro Foggetti - Frontend Developer specializzato in interfacce web moderne e performanti.">
+    <title>Portfolio - Alessandro Foggetti</title>
     <link rel="stylesheet" href="css/index.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -11,14 +12,20 @@
 <header class="header">
 <a href="index.html" class="logo">Alessandro Foggetti</a>
 
-<nav class="navbar">
+<button class="menu-toggle" aria-label="Apri menu di navigazione" id="menuToggle">
+    <i class='bx bx-menu'></i>
+</button>
+
+<nav class="navbar" id="navbar">
     <a href="index.html" class="active" id="nav_home">Home</a>
     <a href="html/chi_sono.html" id="nav_about">Chi sono</a>
     <a href="html/servizi.html" id="nav_services">Servizi</a>
+    <a href="html/lavori.html" id="nav_works">Lavori</a>
     <a href="html/contatti.html" id="nav_contact">Contatti</a>
 </nav>
 </header> 
-<section class="home">
+
+<section class="home" id="home">
     <div class="home-content">
         <h1 id="home_title">Salve, io sono Alessandro Foggetti</h1>
         <h3 id="home_subtitle">Frontend Developer</h3>
@@ -30,16 +37,39 @@
     </div>
 <div class="home-img">
         <div class="img-box">
-            <img src="immagini/Immagine 2025-06-11 202450.png" alt="Alessandro Foggetti">
+            <img src="immagini/Immagine 2025-06-11 202450.png" alt="Foto di Alessandro Foggetti">
         </div>
     </div>
     <div class="home-sci">
-        <a href="https://www.facebook.com/alessandro.foggetti0000"><i class="bx bxl-facebook"></i></a>
-        <a href="https://www.instagram.com/alessandrofoggetti_"><i class="bx bxl-instagram"></i></a>
-        <a href="https://github.com/Aletuber00"> <i class="bx bxl-github"></i></a>
+        <a href="https://www.facebook.com/alessandro.foggetti0000" target="_blank" aria-label="Facebook di Alessandro"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/alessandrofoggetti_" target="_blank" aria-label="Instagram di Alessandro"><i class="bx bxl-instagram"></i></a>
+        <a href="https://github.com/Aletuber00" target="_blank" aria-label="GitHub di Alessandro"> <i class="bx bxl-github"></i></a>
     </div>
 
     <span class="home-imgHover"></span>
 </section>
+
+<script>
+    // Hamburger menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navbar = document.getElementById('navbar');
+    
+    menuToggle.addEventListener('click', () => {
+        navbar.classList.toggle('open');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.toggle('bx-menu');
+        icon.classList.toggle('bx-x');
+    });
+
+    // Chiudi il menu quando si clicca un link (mobile)
+    document.querySelectorAll('.navbar a').forEach(link => {
+        link.addEventListener('click', () => {
+            navbar.classList.remove('open');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.add('bx-menu');
+            icon.classList.remove('bx-x');
+        });
+    });
+</script>
 </body>
 </html>

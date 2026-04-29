@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Servizi di Alessandro Foggetti - Web Development, Responsive Design, Performance e SEO.">
     <title>Servizi - Alessandro Foggetti</title>
     <link rel="stylesheet" href="../css/servizi.css"> 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -12,10 +13,15 @@
 <header class="header">
     <a href="../index.html" class="logo">Alessandro Foggetti</a>
 
-    <nav class="navbar">
+    <button class="menu-toggle" aria-label="Apri menu di navigazione" id="menuToggle">
+        <i class='bx bx-menu'></i>
+    </button>
+
+    <nav class="navbar" id="navbar">
         <a href="../index.html">Home</a>
         <a href="chi_sono.html">Chi sono</a>
         <a href="servizi.html" class="active">Servizi</a>
+        <a href="lavori.html">Lavori</a>
         <a href="contatti.html">Contatti</a>
     </nav>
 </header> 
@@ -43,5 +49,26 @@
         </div>
     </div>
 </section>
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navbar = document.getElementById('navbar');
+    
+    menuToggle.addEventListener('click', () => {
+        navbar.classList.toggle('open');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.toggle('bx-menu');
+        icon.classList.toggle('bx-x');
+    });
+
+    document.querySelectorAll('.navbar a').forEach(link => {
+        link.addEventListener('click', () => {
+            navbar.classList.remove('open');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.add('bx-menu');
+            icon.classList.remove('bx-x');
+        });
+    });
+</script>
 </body>
 </html>

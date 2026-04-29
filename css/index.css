@@ -8,6 +8,11 @@
     }
 }
 
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -18,21 +23,24 @@
 body {
     background: #081b29;
     color: #ededed;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 /* HEADER & NAVBAR */
 .header {
-    position: fixed; /* Corretto da flex a fixed */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 20px 10%;
-    background: transparent;
+    background: rgba(8, 27, 41, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    transition: .3s;
 }
 
 .logo {
@@ -55,6 +63,25 @@ body {
     animation-delay: .4s;
 }
 
+/* Hamburger toggle button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #ededed;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 200;
+    padding: 5px;
+    line-height: 1;
+}
+
+.menu-toggle:focus-visible {
+    outline: 2px solid #00abf0;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
 .navbar a {
     font-size: 18px;
     color: #ededed;
@@ -69,13 +96,20 @@ body {
     color: #00abf0;
 }
 
+/* Focus visibile per accessibilità tastiera */
+.navbar a:focus-visible {
+    outline: 2px solid #00abf0;
+    outline-offset: 4px;
+    border-radius: 3px;
+}
+
 /* HOME SECTION */
 .home {
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Spinge testo a sx e immagine a dx */
-    padding: 0 10%;
+    justify-content: space-between;
+    padding: 70px 10% 0;
 }
 
 .home-content {
@@ -124,6 +158,7 @@ body {
     position: relative;
     font-size: 16px;
     margin: 20px 0 40px;
+    line-height: 1.7;
 }
 
 .home-content p::before {
@@ -142,9 +177,8 @@ body {
 .home-content .btn-box {
     position: relative;
     display: flex;
-    justify-content: space-between;
-    width: 345px;
-    height: 50px;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .home-content .btn-box::before {
@@ -166,7 +200,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 150px;
-    height: 100%;
+    height: 50px;
     background: #00abf0;
     border: 2px solid #00abf0;
     border-radius: 8px;
@@ -178,6 +212,12 @@ body {
     z-index: 1;
     overflow: hidden;
     transition: .5s;
+}
+
+.btn-box a:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+    border-radius: 8px;
 }
 
 .btn-box a:hover {
@@ -216,7 +256,7 @@ body {
 /* SOCIAL ICONS */
 .home-sci {
     position: absolute;
-    bottom: 20px;
+    bottom: 40px;
     width: 170px;
     display: flex;
     justify-content: space-between;
@@ -253,6 +293,11 @@ body {
     transition: .5s;
 }
 
+.home-sci a:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
 .home-sci a:hover {
     color: #081b29;
 }
@@ -273,7 +318,7 @@ body {
     width: 100%;
 }
 
-/* NUOVA SEZIONE IMMAGINE A DESTRA */
+/* IMMAGINE A DESTRA */
 .home-img {
     width: 400px;
     height: 400px;
@@ -294,7 +339,7 @@ body {
     box-shadow: 0 0 25px #00abf0;
 }
 
-/* Effetto comparsa immagine coerente con il tuo stile */
+/* Effetto comparsa immagine */
 .home-img::after {
     content: '';
     position: absolute;
@@ -311,18 +356,21 @@ body {
 /* Stile base per i selettori lingua */
 .lang-selector span {
     transition: .3s;
-    color: #ededed; /* Colore di default (bianco) */
+    color: #ededed;
     font-weight: 500;
     cursor: pointer;
 }
 
-/* Classe che verrà aggiunta via JavaScript */
 .lang-selector span.active-lang {
     color: #00abf0 !important;
     text-shadow: 0 0 10px #00abf0;
 }
 
-/* --- RESPONSIVE DESIGN --- */
+
+
+/* =============================================
+   RESPONSIVE DESIGN
+   ============================================= */
 
 /* Tablet e Laptop piccoli */
 @media (max-width: 1024px) {
@@ -331,43 +379,74 @@ body {
     }
 
     .home {
-        padding: 0 5%;
+        padding: 70px 5% 0;
     }
 
     .home-content h1 {
-        font-size: 48px;
+        font-size: 44px;
     }
+
+    .home-img {
+        width: 350px;
+        height: 350px;
+    }
+
+
 }
 
 /* Smartphone (Breakpoint principale) */
 @media (max-width: 768px) {
-    .header {
-        padding: 20px 5%;
-        background: rgba(8, 27, 41, 0.9); /* Sfondo semi-trasparente per leggere il menu */
+    /* Mostra il pulsante hamburger */
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 260px;
+        height: 100vh;
+        background: rgba(8, 27, 41, 0.97);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        display: flex;
+        flex-direction: column;
+        padding: 90px 30px 40px;
+        transition: right .35s ease;
+        z-index: 150;
+        box-shadow: -5px 0 30px rgba(0,0,0,.3);
+    }
+
+    .navbar.open {
+        right: 0;
     }
 
     .navbar a {
-        font-size: 16px;
-        margin-left: 15px;
+        margin: 0;
+        padding: 15px 0;
+        font-size: 18px;
+        border-bottom: 1px solid rgba(255,255,255,.06);
     }
 
     .home {
-        flex-direction: column-reverse; /* Immagine sopra, testo sotto */
+        flex-direction: column-reverse;
         justify-content: center;
         text-align: center;
         padding-top: 80px;
-        height: auto;
-        min-height: 100vh;
+        height: 100vh;
+        gap: 15px;
+        overflow-y: auto;
     }
 
     .home-img {
-        width: 250px; /* Ridimensioniamo il contenitore immagine */
+        width: 250px;
         height: 250px;
-        margin-bottom: 2rem;
+        flex-shrink: 0;
     }
 
     .home-img img {
-        width: 100%; /* L'immagine riempie il contenitore ridotto */
+        width: 100%;
     }
 
     .home-content {
@@ -375,17 +454,20 @@ body {
     }
 
     .home-content h1 {
-        font-size: 35px;
+        font-size: 32px;
     }
 
     .home-content h3 {
-        font-size: 24px;
+        font-size: 22px;
+    }
+
+    .home-content p {
+        font-size: 15px;
+        margin: 15px 0 30px;
     }
 
     .home-content .btn-box {
-        width: 100%;
         justify-content: center;
-        gap: 20px;
     }
 
     .btn-box a {
@@ -394,37 +476,38 @@ body {
     }
 
     .home-sci {
-        position: relative; /* Evita che si sovrapponga al testo */
+        position: relative;
         bottom: 0;
-        margin: 30px auto;
+        margin: 20px auto 0;
         width: 170px;
     }
+
+
 }
 
 /* Smartphone molto piccoli (iPhone SE, etc) */
 @media (max-width: 450px) {
-    .header {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .navbar a {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
     .home-content h1 {
-        font-size: 28px;
+        font-size: 26px;
+    }
+
+    .home-content h3 {
+        font-size: 20px;
     }
 
     .btn-box {
         flex-direction: column;
-        height: auto;
-        gap: 15px;
+        align-items: center;
     }
 
     .btn-box a {
         width: 100%;
-        height: 45px;
+        max-width: 240px;
+        height: 48px;
+    }
+
+    .home-img {
+        width: 180px;
+        height: 180px;
     }
 }

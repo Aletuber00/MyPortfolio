@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I lavori e progetti di Alessandro Foggetti - Frontend Developer.">
+    <title>Lavori - Alessandro Foggetti</title>
+    <link rel="stylesheet" href="../css/lavori.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="../index.html" class="logo">Alessandro Foggetti</a>
+
+        <button class="menu-toggle" aria-label="Apri menu di navigazione" id="menuToggle">
+            <i class='bx bx-menu'></i>
+        </button>
+
+        <nav class="navbar" id="navbar">
+            <a href="../index.html">Home</a>
+            <a href="chi_sono.html">Chi sono</a>
+            <a href="servizi.html">Servizi</a>
+            <a href="lavori.html" class="active">Lavori</a>
+            <a href="contatti.html">Contatti</a>
+        </nav>
+    </header>
+
+    <section class="lavori">
+        <h2 class="heading">I Miei <span>Lavori</span></h2>
+
+        <div class="lavori-container">
+            <!-- LAVORO 1 -->
+            <a href="https://matrix-portfolio-ivory.vercel.app" target="_blank" class="lavoro-card" id="lavoro_1">
+                <div class="lavoro-icon">
+                    <i class='bx bx-code-block'></i>
+                </div>
+                <h3>Portfolio Matrix</h3>
+                <p>Portfolio ispirato all'estetica della trilogia di film "Matrix".</p>
+                <span class="lavoro-link">Visita il sito <i class='bx bx-right-arrow-alt'></i></span>
+            </a>
+
+            <!-- LAVORO 2 -->
+            <a href="https://roma-eosin-mu.vercel.app/" target="_blank" class="lavoro-card" id="lavoro_2">
+                <div class="lavoro-icon">
+                    <i class='bx bx-palette'></i>
+                </div>
+                <h3>Roma caput mundi</h3>
+                <p>Sito web su Roma.</p>
+                <span class="lavoro-link">Visita il sito <i class='bx bx-right-arrow-alt'></i></span>
+            </a>
+
+            <!-- LAVORO 3 -->
+            <a href="#" target="_blank" class="lavoro-card" id="lavoro_3">
+                <div class="lavoro-icon">
+                    <i class='bx bx-mobile-alt'></i>
+                </div>
+                <h3>Progetto 3</h3>
+                <p>Descrizione breve del progetto. Modifica testo e link.</p>
+                <span class="lavoro-link">Visita il sito <i class='bx bx-right-arrow-alt'></i></span>
+            </a>
+
+            <!-- LAVORO 4 -->
+            <a href="#" target="_blank" class="lavoro-card" id="lavoro_4">
+                <div class="lavoro-icon">
+                    <i class='bx bx-globe'></i>
+                </div>
+                <h3>Progetto 4</h3>
+                <p>Descrizione breve del progetto. Modifica testo e link.</p>
+                <span class="lavoro-link">Visita il sito <i class='bx bx-right-arrow-alt'></i></span>
+            </a>
+        </div>
+    </section>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navbar = document.getElementById('navbar');
+
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('open');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('bx-menu');
+            icon.classList.toggle('bx-x');
+        });
+
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('open');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.add('bx-menu');
+                icon.classList.remove('bx-x');
+            });
+        });
+    </script>
+</body>
+
+</html>

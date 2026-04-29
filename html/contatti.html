@@ -1,70 +1,103 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contatta Alessandro Foggetti per progetti web, collaborazioni e preventivi.">
     <title>Contatti - Alessandro Foggetti</title>
-    <link rel="stylesheet" href="../css/contatti.css"> 
+    <link rel="stylesheet" href="../css/contatti.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
 
-<header class="header">
-    <a href="../index.html" class="logo">Alessandro Foggetti</a>
+    <header class="header">
+        <a href="../index.html" class="logo">Alessandro Foggetti</a>
 
-    <nav class="navbar">
-        <a href="../index.html">Home</a>
-        <a href="chi_sono.html">Chi sono</a>
-        <a href="servizi.html">Servizi</a>
-        <a href="contatti.html" class="active">Contatti</a>
-    </nav>
-</header> 
+        <button class="menu-toggle" aria-label="Apri menu di navigazione" id="menuToggle">
+            <i class='bx bx-menu'></i>
+        </button>
 
-<section class="contact">
-    <h2 class="heading">Contattami</h2>
+        <nav class="navbar" id="navbar">
+            <a href="../index.html">Home</a>
+            <a href="chi_sono.html">Chi sono</a>
+            <a href="servizi.html">Servizi</a>
+            <a href="lavori.html">Lavori</a>
+            <a href="contatti.html" class="active">Contatti</a>
+        </nav>
+    </header>
 
-    <div class="contact-container">
-        <div class="contact-info">
-            <h3>Lavoriamo insieme!</h3>
-            <p>Hai un progetto in mente? Scrivimi pure!</p>
-            
-            <div class="info-list">
-                <div class="info-item">
-                    <i class='bx bxs-envelope'></i>
-                    <span>icloudale00@gmail.com</span>
+    <section class="contact">
+        <h2 class="heading">Contattami</h2>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Lavoriamo insieme!</h3>
+                <p>Hai un progetto in mente? Scrivimi pure!</p>
+                <br>
+                <div class="info-list">
+                    <div class="info-item">
+                        <i class='bx bxs-envelope'></i>
+                        <span>icloudale00@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class='bx bxs-phone'></i>
+                        <span>+39 329 956 5019</span>
+                    </div>
+                    <div class="info-item">
+                        <i class='bx bxs-map'></i>
+                        <span>Italia, Capurso (BA)</span>
+                    </div>
                 </div>
-                <div class="info-item">
-                    <i class='bx bxs-phone'></i>
-                    <span>+39 329 956 5019</span>
-                </div>
-                <div class="info-item">
-                    <i class='bx bxs-map'></i>
-                    <span>Italia, Capurso (BA)</span>
+                <br>
+                <div class="home-sci">
+                    <a href="https://www.facebook.com/alessandro.foggetti0000" target="_blank"
+                        aria-label="Facebook di Alessandro"><i class="bx bxl-facebook"></i></a>
+                    <a href="https://www.instagram.com/alessandrofoggetti_" target="_blank"
+                        aria-label="Instagram di Alessandro"><i class="bx bxl-instagram"></i></a>
+                    <a href="https://github.com/Aletuber00" target="_blank" aria-label="GitHub di Alessandro"><i
+                            class="bx bxl-github"></i></a>
                 </div>
             </div>
 
-            <div class="home-sci">
-                <a href="https://www.facebook.com/alessandro.foggetti0000"><i class="bx bxl-facebook"></i></a>
-                <a href="https://www.instagram.com/alessandrofoggetti_"><i class="bx bxl-instagram"></i></a>
-                <a href="https://github.com/Aletuber00"><i class="bx bxl-github"></i></a>
-            </div>
+            <form action="https://formspree.io/f/mlgoprvl" method="POST">
+                <div class="input-box">
+                    <input type="text" name="Nome" placeholder="Nome Completo" required>
+                    <input type="email" name="Email" placeholder="Indirizzo Email" required>
+                </div>
+                <div class="input-box">
+                    <input type="tel" name="Telefono" placeholder="Numero di Telefono">
+                    <input type="text" name="Oggetto" placeholder="Oggetto della mail">
+                </div>
+                <textarea name="Messaggio" cols="30" rows="5" placeholder="Scrivi qui il tuo messaggio..."
+                    required></textarea>
+
+                <button type="submit" class="btn">Invia Messaggio</button>
+            </form>
         </div>
+    </section>
 
-        <form action="https://formspree.io/f/mlgoprvl" method="POST">
-            <div class="input-box">
-                <input type="text" name="Nome" placeholder="Nome Completo" required>
-                <input type="email" name="Email" placeholder="Indirizzo Email" required>
-            </div>
-            <div class="input-box">
-                <input type="number" name="Telefono" placeholder="Numero di Telefono">
-                <input type="text" name="Oggetto" placeholder="Oggetto della mail">
-            </div>
-            <textarea name="Messaggio" cols="30" rows="10" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
-            
-            <button type="submit" class="btn">Invia Messaggio</button>
-        </form>
-    </div>
-</section>
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navbar = document.getElementById('navbar');
 
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('open');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('bx-menu');
+            icon.classList.toggle('bx-x');
+        });
+
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('open');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.add('bx-menu');
+                icon.classList.remove('bx-x');
+            });
+        });
+    </script>
 </body>
+
 </html>
